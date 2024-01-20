@@ -1,0 +1,12 @@
+{
+    "name": "nodejs-uploads",
+    "version": "1.0.0",
+    "description": "upload de arquivos com nodejs",
+    "main": "index.js",
+    "author": "Enéas Almeida",
+    "license": "MIT",
+    "devDependencies": {
+        "nodemon": "^3.0.3",
+        "typescript": "^5.3.3"
+    }
+}
