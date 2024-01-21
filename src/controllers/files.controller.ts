@@ -11,13 +11,11 @@ export class FilesController implements FilesControllerInterface {
 
     async save(input: InputFileDto): Promise<HttpResponse> {
         await this.filesUseCase.save.execute(input);
-
         return create();
     }
 
     async findOne(id: string): Promise<HttpResponse> {
         const response = await this.filesUseCase.findOne.execute(id);
-
         return ok(response);
     }
 }

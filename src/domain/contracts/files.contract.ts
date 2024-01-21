@@ -14,11 +14,11 @@ export interface OutputFileDto {
 }
 
 export interface FilesRepositoryInterface {
-    save(): Promise<any>;
+    save(data: any): Promise<any>;
     findOne(id: string): Promise<any>;
 }
 
-export interface FilesUseCaseContainerInterface {
+export interface FilesContainerInterface {
     repository: {
         files: FilesRepositoryInterface;
     };

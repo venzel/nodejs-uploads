@@ -4,9 +4,7 @@ import { prisma } from '../../../main/configs/db';
 export class PostgresFilesRepository implements FilesRepositoryInterface {
     async findOne(id: string): Promise<any> {
         try {
-            const file = await prisma?.file.findUnique({
-                where: { id },
-            });
+            const file = await prisma?.file.findUnique({ where: { id } });
 
             return file;
         } catch (err) {
@@ -14,13 +12,9 @@ export class PostgresFilesRepository implements FilesRepositoryInterface {
         }
     }
 
-    async save(): Promise<any> {
+    async save(data: any): Promise<any> {
         try {
-            const newFile = prisma?.file.create({
-                data: {
-                    name: 'test',
-                },
-            });
+            const newFile = prisma?.file.create({ data });
 
             return newFile;
         } catch (err) {

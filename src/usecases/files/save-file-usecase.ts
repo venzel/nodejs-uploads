@@ -1,10 +1,9 @@
-import { FilesUseCaseContainerInterface } from '../../domain/contracts/files.contract';
+import { FilesContainerInterface } from '../../domain/contracts/files.contract';
 
 export class SaveFileUseCase {
-    constructor(private readonly container: FilesUseCaseContainerInterface) {}
+    constructor(private readonly container: FilesContainerInterface) {}
 
     async execute() {
-        console.log('--------------------- ok execute');
-        this.container.repository.files.save();
+        this.container.repository.files.save({});
     }
 }
