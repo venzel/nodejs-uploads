@@ -1,3 +1,5 @@
 import { CacheProviderInterface } from '../../../domain/contracts/providers.contracts';
 
-export class IoRedisCacheProvider implements CacheProviderInterface {}
+class IoRedisCacheProvider implements CacheProviderInterface {}
+
+export default new IoRedisCacheProvider();

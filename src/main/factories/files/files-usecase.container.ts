@@ -1,10 +1,10 @@
 import { cache, logger } from '../../../infra/providers';
-import { MakeFilesRepository } from '../../factories/files-repository.factory';
+import { MakeFilesRepository } from './files-repository.factory';
 
 const filesRepository = MakeFilesRepository();
 
-const cacheProvider = new cache.IoRedisCacheProvider();
-const loggerProvider = new logger.WinstonLoggerProvider();
+const cacheProvider = cache.IoRdedisCacheProvider;
+const loggerProvider = logger.WinstonLoggerProvider;
 
 export const MakeSaveFileUseCaseContainer = () => {
     return {

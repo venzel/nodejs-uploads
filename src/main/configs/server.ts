@@ -11,6 +11,7 @@ export const config = (app) => {
                 console.error(err);
                 process.exit(1);
             }
+
             console.log(`Server listening at ${envs.api.port}`);
         },
     );

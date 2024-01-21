@@ -1,4 +1,7 @@
-import { FilesContainerUseCaseInterface, FilesRepositoryInterface } from '../domain/contracts/files.contract';
+import {
+    FilesContainerUseCaseInterface,
+    FilesRepositoryInterface,
+} from '../../domain/contracts/files.contract';
 
 export class SaveFileUseCase {
     constructor(private readonly container: FilesContainerUseCaseInterface) {}

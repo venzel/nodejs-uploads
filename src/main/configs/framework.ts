@@ -1,7 +1,10 @@
 import fastify from 'fastify';
+import pino from 'pino';
 
 export const config = () => {
-    const app = fastify();
+    const app = fastify({
+        logger: pino(),
+    });
 
     return app;
 };

@@ -20,6 +20,6 @@ down:
 	docker-compose down
 
 ammend:
-	git add --all && git commit --amend --no-edit && git push origin main -f
+	git add --all && git commit --amend --no-edit && git push origin master -f
 
 .PHONY: packages dev build start test up down ammend

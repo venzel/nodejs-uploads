@@ -3,9 +3,16 @@ import 'dotenv/config';
 
 const schema = z.object({
     api: z.object({
-        port: z.number().default(3000),
+        port: z.string().default('3000'),
         host: z.string().default('localhost'),
     }),
 });
 
-export const envs = schema.parse(process.env);
+const defaultEnvs = {
+    api: {
+        port: process.env.API_PORT,
+        host: process.env.API_HOST,
+    },
+};
+
+export const envs = schema.parse(defaultEnvs);

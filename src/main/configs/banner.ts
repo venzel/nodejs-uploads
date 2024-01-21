@@ -5,7 +5,3 @@ export const config = () => {
     console.log(`${name.toUpperCase()}\nv${version}`);
     console.log('----------------------------------------');
 };
-
-export const cf = () => {
-    return null;
-};

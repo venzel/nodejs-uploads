@@ -1,1 +1,1 @@
-export * from './winston-logger.provider';
+export * as WinstonLoggerProvider from './winston-logger.provider';
