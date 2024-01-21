@@ -7,15 +7,15 @@ import {
 import { ok, create } from './helpers';
 
 export class FilesController implements FilesControllerInterface {
-    constructor(private readonly filesUseCase: FilesUseCaseInterface) {}
+    constructor(private readonly useCase: FilesUseCaseInterface) {}
 
     async save(input: InputFileDto): Promise<HttpResponse> {
-        await this.filesUseCase.save.execute(input);
+        await this.useCase.save.execute(input);
         return create();
     }
 
     async findOne(id: string): Promise<HttpResponse> {
-        const response = await this.filesUseCase.findOne.execute(id);
+        const response = await this.useCase.findOne.execute(id);
         return ok(response);
     }
 }

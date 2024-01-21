@@ -1,10 +1,11 @@
-import { FilesUseCaseInterface } from '../../../domain/contracts/files.contract';
-import { FindOneFileUseCase, SaveFileUseCase } from '../../../usecases/files';
-import { MakeFindOneFileUseCaseContainer, MakeSaveFileUseCaseContainer } from './files-usecase.container';
+import { SaveFileUseCase, FindOneFileUseCase } from '@/usecases/files';
+import { MakeFilesContainer } from './files-container.factory';
 
-export const MakeFilesUseCase = async (): Promise<FilesUseCaseInterface> => {
+export const MakeFilesUseCase = () => {
+    const filesContainer = MakeFilesContainer();
+
     return {
-        save: new SaveFileUseCase(MakeSaveFileUseCaseContainer()),
-        findOne: new FindOneFileUseCase(MakeFindOneFileUseCaseContainer()),
+        save: new SaveFileUseCase(filesContainer),
+        findOne: new FindOneFileUseCase(filesContainer),
     };
 };
