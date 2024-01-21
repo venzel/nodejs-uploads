@@ -1,9 +1,10 @@
-import { FilesContainerUseCaseInterface } from '../../domain/contracts/files.contract';
+import { FilesUseCaseContainerInterface } from '../../domain/contracts/files.contract';
 
 export class FindOneFileUseCase {
-    constructor(private readonly container: FilesContainerUseCaseInterface) {}
+    constructor(private readonly container: FilesUseCaseContainerInterface) {}
 
-    async execute() {
-        this.container.repository.files.findOne();
+    async execute(id: string) {
+        const existsFile = await this.container.repository.files.findOne(id);
+        console.log(existsFile);
     }
 }

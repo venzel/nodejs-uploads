@@ -1,16 +1,24 @@
+import { HttpResponse } from './http';
 import { CacheProviderInterface, LoggerProviderInterface } from './providers.contracts';
 
-export type HttpResponse<T = any> = {
-    statusCode: number;
-    body: T;
-};
-
-export interface FilesRepositoryInterface {
-    save(): Promise<void>;
-    findOne(): Promise<void>;
+export interface InputFileDto {
+    headers: {};
+    body: {
+        name: string;
+    };
 }
 
-export interface FilesContainerUseCaseInterface {
+export interface OutputFileDto {
+    id: string;
+    name: string;
+}
+
+export interface FilesRepositoryInterface {
+    save(): Promise<any>;
+    findOne(id: string): Promise<any>;
+}
+
+export interface FilesUseCaseContainerInterface {
     repository: {
         files: FilesRepositoryInterface;
     };
@@ -21,11 +29,11 @@ export interface FilesContainerUseCaseInterface {
 }
 
 export interface FilesUseCaseInterface {
-    save: { execute(): Promise<void> };
-    findOne: { execute(): Promise<void> };
+    save: { execute(input: InputFileDto): Promise<void> };
+    findOne: { execute(id: string): Promise<void> };
 }
 
 export interface FilesControllerInterface {
-    save(): Promise<HttpResponse>;
-    findOne(): Promise<HttpResponse>;
+    save(input: InputFileDto): Promise<HttpResponse>;
+    findOne(id: string): Promise<HttpResponse>;
 }

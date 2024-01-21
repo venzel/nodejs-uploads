@@ -1,3 +1,5 @@
+import morgan from 'morgan';
+
 export const config = (app) => {
-    return app;
+    app.use(morgan('dev'));
 };

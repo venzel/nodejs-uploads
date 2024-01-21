@@ -1,10 +1,9 @@
-import fastify from 'fastify';
-import pino from 'pino';
+import express from 'express';
 
 export const config = () => {
-    const app = fastify({
-        logger: pino(),
-    });
+    const app = express();
+
+    app.use(express.json());
 
     return app;
 };
